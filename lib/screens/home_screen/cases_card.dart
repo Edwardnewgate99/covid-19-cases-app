@@ -1,17 +1,11 @@
+import 'package:covid19cases/models/cases_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 class CasesCard extends StatelessWidget {
-  const CasesCard({
-    @required this.city,
-    @required this.confirmed,
-    @required this.deaths,
-    @required this.recovered,
-    @required this.active,
-  });
+  const CasesCard(this.info);
 
-  final String city;
-  final int confirmed, deaths, recovered, active;
+  final CasesInfo info;
 
   @override
   Widget build(BuildContext context) => Card(
@@ -37,7 +31,7 @@ class CasesCard extends StatelessWidget {
 
 
                   Text(
-                    city,
+                    info.city,
                     style: TextStyle(fontSize: 23),
                   ),
                 ],
@@ -46,10 +40,10 @@ class CasesCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  NumberStats('Confirmed',confirmed),
-                  NumberStats('Active',active),
-                  NumberStats('Recovered',recovered),
-                  NumberStats('Deaths',deaths),
+                  NumberStats('Confirmed',info.confirmed),
+                  NumberStats('Active',info.active),
+                  NumberStats('Recovered',info.recovered),
+                  NumberStats('Deaths',info.deaths),
                 ],
               )
             ],
@@ -78,8 +72,8 @@ class NumberStats extends StatelessWidget {
 
 //coloring
  tet(name){
-  return name=='Confirmed'? Text(name,style: TextStyle(fontSize: 15,color: Colors.red[800])):
-  name=='Active'? Text(name,style: TextStyle(fontSize: 15,color: Colors.yellow[800])):
-  name=='Recovered'? Text(name,style: TextStyle(fontSize: 15,color: Colors.green[800])):
+  return name=='Confirmed'? Text(name,style: TextStyle(fontSize: 15,color: Colors.red.shade800)):
+  name=='Active'? Text(name,style: TextStyle(fontSize: 15,color: Colors.yellow.shade800)):
+  name=='Recovered'? Text(name,style: TextStyle(fontSize: 15,color: Colors.green.shade800)):
   Text(name,style: TextStyle(fontSize: 15,color: Colors.black));
 }

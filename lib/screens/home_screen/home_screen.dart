@@ -1,10 +1,42 @@
+import 'package:covid19cases/models/cases_info.dart';
 import 'package:covid19cases/screens/home_screen/cases_card.dart';
 import 'package:covid19cases/screens/home_screen/logo.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen();
+  final cases = const<CasesInfo>[
+    CasesInfo(
+      city: 'Tripoli', confirmed: 55, deaths: 18, recovered: 6,),
+    CasesInfo(
+      city: 'Benghazi', confirmed: 19, deaths: 3, recovered: 0,
+    ),
+    CasesInfo(
+      city: 'Misrata',
+      confirmed: 36, deaths: 8, recovered: 0,
+    ),
+    CasesInfo(
+      city: 'Sabha',
+      confirmed: 22, deaths: 6, recovered: 10,
+    ),
+    CasesInfo(
+      city: 'Khoms',
+      confirmed: 6, deaths: 0, recovered: 1,
+    ),
+    CasesInfo(
+      city: 'Zuwara',
+      confirmed: 19, deaths: 8, recovered: 3,
+    ),
+    CasesInfo(
+      city: 'Kufra',
+      confirmed: 14, deaths: 5, recovered:0,
+    ),
+    CasesInfo(
+      city: 'Bani Walid',
+      confirmed: 6, deaths: 0, recovered: 1,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -32,64 +64,9 @@ class HomeScreen extends StatelessWidget {
                       Logo(),
 
                       SizedBox(height: 10),
+                      ...cases.map((info) => CasesCard(info)),
 
-                      CasesCard(
-                        city: 'Tripoli',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
 
-                      CasesCard(
-                        city: 'Benghazi',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
-                      CasesCard(
-                        city: 'Misrata',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
-                      CasesCard(
-                        city: 'Sabha',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
-                      CasesCard(
-                        city: 'Khoms',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
-                      CasesCard(
-                        city: 'Zuwara',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
-                      CasesCard(
-                        city: 'Kufra',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
-                      CasesCard(
-                        city: 'Bani Walid',
-                        confirmed: new Random().nextInt(70-40),
-                        active: new Random().nextInt(50 - 30),
-                        deaths: new Random().nextInt(30-8),
-                        recovered: new Random().nextInt(25-10),
-                      ),
                     ],
                   ),
                 ),
