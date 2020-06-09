@@ -1,7 +1,9 @@
 import 'package:covid19cases/models/cases_info.dart';
 import 'package:covid19cases/screens/home_screen/cases_card.dart';
 import 'package:covid19cases/screens/home_screen/logo.dart';
+import 'package:covid19cases/screens/home_screen/total_cases_card.dart';
 import 'package:flutter/material.dart';
+
 
 
 class HomeScreen extends StatelessWidget {
@@ -61,8 +63,15 @@ class HomeScreen extends StatelessWidget {
                   child: ListView(
 
                     children: [
+
+
                       Logo(),
 
+                      SizedBox(height: 10),
+
+
+
+                      TotalCases(),
                       SizedBox(height: 10),
                       ...cases.map((info) => CasesCard(info)),
 

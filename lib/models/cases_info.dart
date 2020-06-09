@@ -11,5 +11,6 @@ class CasesInfo{
   });
   final String city;
   final int confirmed, deaths, recovered;
-  int get active=>confirmed+(deaths+recovered);
+  int get active=>confirmed- (deaths+recovered);
+
 }

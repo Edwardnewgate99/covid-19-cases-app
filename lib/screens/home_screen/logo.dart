@@ -18,6 +18,7 @@ class Logo extends StatelessWidget {
             size: 30,
             colors: Colors.yellow,
           ),
+
         ],
       );
 }

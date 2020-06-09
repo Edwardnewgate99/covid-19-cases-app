@@ -39,6 +39,7 @@ class CasesCard extends StatelessWidget {
               SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                 children: [
                   NumberStats('Confirmed',info.confirmed),
                   NumberStats('Active',info.active),
