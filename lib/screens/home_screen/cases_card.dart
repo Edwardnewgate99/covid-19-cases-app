@@ -5,9 +5,9 @@ class CasesCard extends StatelessWidget {
   const CasesCard({
     @required this.city,
     @required this.confirmed,
-    @required this.active,
     @required this.deaths,
     @required this.recovered,
+    @required this.active,
   });
 
   final String city;
@@ -15,30 +15,41 @@ class CasesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
+
+    color: Color.fromRGBO(223, 223, 223, 1),
         shape: RoundedRectangleBorder(
+
           borderRadius: BorderRadius.all(
-            Radius.circular(20),
+            Radius.circular(15),
+
           ),
+
         ),
-        child: Padding(
+
+    child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
+
             children: [
               Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.account_balance),
+
+
                   Text(
                     city,
                     style: TextStyle(fontSize: 23),
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  NumberStats('Deaths', 22),
-                  NumberStats('Active', 32),
+                  NumberStats('Confirmed',confirmed),
+                  NumberStats('Active',active),
+                  NumberStats('Recovered',recovered),
+                  NumberStats('Deaths',deaths),
                 ],
               )
             ],
@@ -55,9 +66,20 @@ class NumberStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
+
         children: [
-          Text('$number'),
-          Text(name),
+          Text('$number'
+          ,style: TextStyle(fontSize: 20),),
+
+          tet(name),
         ],
       );
+}
+
+//coloring
+ tet(name){
+  return name=='Confirmed'? Text(name,style: TextStyle(fontSize: 15,color: Colors.red[800])):
+  name=='Active'? Text(name,style: TextStyle(fontSize: 15,color: Colors.yellow[800])):
+  name=='Recovered'? Text(name,style: TextStyle(fontSize: 15,color: Colors.green[800])):
+  Text(name,style: TextStyle(fontSize: 15,color: Colors.black));
 }
